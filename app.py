@@ -48,7 +48,7 @@ with tab2:
                     st.pyplot(fig)
             elif visualization_type == 'EDA':
                 # Περιγραφικα στατιστικα
-                st.write("Περιγραφικα στατιστικα:", data.describe())
+                st.write("Περιγραφικά στατιστικά:", data.describe())
 
                 # Ιστογραμματα για ολες τις αριθμητικες στηλες
                 st.write("Ιστογράμματα για όλες τις αριθμητικές στήλες:")
