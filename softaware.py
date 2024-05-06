@@ -13,8 +13,8 @@ st.sidebar.title("Εργασία Εξαμήνου")#ειναι το Sidebar
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
 with tab1:
-    st.write("Εδώ μπορείτε να ανεβάσετε το αρχείο σας")
-    uploaded_files = st.file_uploader("Choose a CSV file", accept_multiple_files=True) # Καλυπτει κ το ερωτημα 2 
+    st.write("Εδώ μπορείτε να ανεβάσετε το csv αρχείο σας")
+    uploaded_files = st.file_uploader("Choose a CSV file", accept_multiple_files=True , type = "csv") # Καλυπτει κ το ερωτημα 2 
 with tab2:
     if uploaded_files: # Καλυπτει κ το ερωτημα 2
         list_of_dataframes = [pd.read_csv(file, encoding='ISO-8859-1') for file in uploaded_files] #allagi utf to ISO
