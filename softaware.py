@@ -17,7 +17,7 @@ with tab1:
     uploaded_files = st.file_uploader("Choose a CSV file", accept_multiple_files=True) # Καλυπτει κ το ερωτημα 2 
 with tab2:
     if uploaded_files: # Καλυπτει κ το ερωτημα 2
-        list_of_dataframes = [pd.read_csv(file, encoding='ISO-8859-1') for file in uploaded_files]
+        list_of_dataframes = [pd.read_csv(file, encoding='ISO-8859-1') for file in uploaded_files] #allagi utf to ISO
         data = pd.concat(list_of_dataframes, ignore_index=True) # Καλυπτει κ το ερωτημα 2
 
         if data is not None:
