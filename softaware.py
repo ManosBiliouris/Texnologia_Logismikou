@@ -65,6 +65,45 @@ with tab2:
                     plt.figure(figsize=(10, 7))
                     sns.heatmap(data[numeric_cols].corr(), annot=True, fmt=".2f", cmap='coolwarm')
                     st.pyplot()
+with tab3:
+    if uploaded_files: # Καλυπτει και το ερώτημα 2
+        st.write("Εφαρμογή Αλγορίθμων Μηχανικής Μάθησης")
+
+        # Διαχωρισμός δεδομένων σε χαρακτηριστικά (X) και στόχο (y)
+        X = data.drop(columns=['target'])
+        y = data['target']
+
+        # Εισαγωγή του μοντέλου
+        from sklearn.linear_model import LinearRegression
+        model = LinearRegression()
+
+        # Εκπαίδευση του μοντέλου
+        model.fit(X, y)
+
+        # Πρόβλεψη με βάση τα εισόδια δεδομένα
+        predictions = model.predict(X)
+
+        # Εμφάνιση αποτελεσμάτων
+        st.write("Προβλεπόμενες τιμές:", predictions)
+
+with tab4:
+    if uploaded_files: # Καλυπτει και το ερώτημα 2
+        # Εμφάνιση αποτελεσμάτων ανάλυσης και σύγκριση
+        st.write("Αποτελέσματα Ανάλυσης και Σύγκριση")
+
+        # Περιγραφικά στατιστικά
+        st.write("Περιγραφικά στατιστικά:", data.describe())
+
+        # Διάγραμμα scatter plot για τις προβλεπόμενες τιμές
+        st.write("Διάγραμμα Scatter Plot για τις προβλεπόμενες τιμές")
+        fig, ax = plt.subplots()
+        ax.scatter(y, predictions)
+        ax.plot([y.min(), y.max()], [y.min(), y.max()], 'k--', lw=4)
+        ax.set_xlabel('Πραγματικές Τιμές')
+        ax.set_ylabel('Προβλεπόμενες Τιμές')
+        st.pyplot(fig)
+
+
 
 with tab5:     #Το παρακατω κειμενακι θα αλλαξει λογικα οσο αναπτυσεται το app
     st.write("""
