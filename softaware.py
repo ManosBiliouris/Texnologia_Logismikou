@@ -5,6 +5,9 @@ from sklearn.manifold import TSNE
 import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score, confusion_matrix , classification_report
 
 #Οτι Tab Θα χρειαστουμε , tab1 = Ανεβασε το αρχειο σου , tab2 =  2D Visualization και τα λοιπααα!!!
 tab1 , tab2 , tab3 , tab4 ,tab5 = st.tabs(["Ανέβασε το αρχείο σου", "2D Visualization" , "Μηχανικής Μάθησης" ,"Αποτελέσματα και Σύγκριση" , "Information"])
@@ -65,6 +68,45 @@ with tab2:
                     plt.figure(figsize=(10, 7))
                     sns.heatmap(data[numeric_cols].corr(), annot=True, fmt=".2f", cmap='coolwarm')
                     st.pyplot()
+with tab3:
+    st.write("αλγόριθμοι Κατηγοριοποίησης  1) KNeighborsClassifier")
+    if uploaded_files:
+        X = data.drop(columns=data.columns[-1])  
+        y = data.iloc[:, -1]
+    
+        X_train, X_test, y_train, y_test = train_test_split(X, y, random_state = 0)
+
+        from sklearn.neighbors import KNeighborsClassifier
+        knn = KNeighborsClassifier(n_neighbors=3)
+        knn.fit(X_train, y_train)
+
+        y_pred = knn.predict(X_test)
+        st.write(f'Our model accuracy with k=3 is: {knn.score(X_test, y_test)}')
+
+        st.write("Confusion Matrix:")
+        st.write(confusion_matrix(y_test, y_pred))
+        
+        st.write("Classification Report:")
+        st.write(classification_report(y_test, y_pred))
+
+with tab4:
+    if uploaded_files: # Καλυπτει και το ερώτημα 2
+        # Εμφάνιση αποτελεσμάτων ανάλυσης και σύγκριση
+        st.write("Αποτελέσματα Ανάλυσης και Σύγκριση")
+
+        # Περιγραφικά στατιστικά
+        st.write("Περιγραφικά στατιστικά:", data.describe())
+
+        # Διάγραμμα scatter plot για τις προβλεπόμενες τιμές
+        st.write("Διάγραμμα Scatter Plot για τις προβλεπόμενες τιμές")
+        fig, ax = plt.subplots()
+        #ax.scatter(y, predictions)
+        ax.plot([y.min(), y.max()], [y.min(), y.max()], 'k--', lw=4)
+        ax.set_xlabel('Πραγματικές Τιμές')
+        ax.set_ylabel('Προβλεπόμενες Τιμές')
+        st.pyplot(fig)
+
+
 
 with tab5:     #Το παρακατω κειμενακι θα αλλαξει λογικα οσο αναπτυσεται το app
     st.write("""
