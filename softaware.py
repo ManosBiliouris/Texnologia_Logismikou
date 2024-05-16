@@ -12,9 +12,9 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.preprocessing import StandardScaler
 
 # Tab definitions
-tab1, tab2, tab3, tab4, tab5 = st.tabs(["Ανέβασε το αρχείο σου", "2D Visualization", "Μηχανικής Μάθησης", "Αποτελέσματα και Σύγκριση", "Information"])
+tab1, tab2, tab3, tab4 = st.tabs(["Ανέβασε το αρχείο σου", "2D Visualization", "Μηχανικής Μάθησης", "Information"])
 
-st.sidebar.title("Εργασία Εξαμήνου")  # Sidebar
+
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
@@ -70,47 +70,64 @@ with tab2:
                     st.pyplot()
 
 with tab3:
-    st.write("Αλγόριθμοι Κατηγοριοποίησης: KNeighborsClassifier")
+    st.write('<span style="font-size:24px; color:#FFD700">Αλγόριθμοι Κατηγοριοποίησης</span>', unsafe_allow_html=True)
     if uploaded_files:
         X = data.drop(columns=data.columns[-1])
         y = data.iloc[:, -1]
 
-        num_neighbors = st.number_input("Enter the number of neighbors:", min_value=1, max_value=20, step=1, value=3)
+        #Χρήστης Δίνει τους γείτονες KNeighborsClassifier
+        num_neighbors = st.number_input("Δώσε τον αριθμό των γειτόνων για το KNeighborsClassifier:", min_value=1, max_value=20, step=1, value=3)
+
+        # Χρηστης δίνει το estimator για το Δάσος
+        num_estimators = st.number_input("Δώσε τον αριθμό των estimators για το RandomForestClassifier:", min_value=1, max_value=100, step=1, value=10)
+
+        st.markdown("---")
 
         X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=0)
 
+        # Preprocessing
         scaler = StandardScaler()
         X_train_scaled = scaler.fit_transform(X_train)
         X_test_scaled = scaler.transform(X_test)
 
+        # Τραιν KNeighborsClassifier model
         knn = KNeighborsClassifier(n_neighbors=num_neighbors)
         knn.fit(X_train_scaled, y_train)
 
-        y_pred = knn.predict(X_test_scaled)
+        # τραιν the RandomForestClassifier model
+        rf_classifier = RandomForestClassifier(n_estimators=num_estimators, random_state=0)
+        rf_classifier.fit(X_train_scaled, y_train)
 
-        accuracy = knn.score(X_test_scaled, y_test)
-        st.write(f'Model accuracy with k={num_neighbors}: {accuracy:.2f}')
+        #Προβλεψεις για τον γειτονα
+        y_pred_knn = knn.predict(X_test_scaled)
 
-        st.write("Confusion Matrix:")
-        st.write(confusion_matrix(y_test, y_pred))
+        # Προβλέψεις για το Δάσος
+        y_pred_rf = rf_classifier.predict(X_test_scaled)
 
-        st.write("Classification Report:")
-        st.write(classification_report(y_test, y_pred))
+        st.write('<span style="font-size:24px; color:#FFD700">Στατιστικά για το KneighborClassifier</span>', unsafe_allow_html=True)
+
+        # Στατιστικα για τον Γείτονα
+        accuracy_knn = knn.score(X_test_scaled, y_test)
+        st.write(f'KNeighborsClassifier accuracy with k={num_neighbors}: {accuracy_knn:.2f}')
+        st.write("Confusion Matrix for KNeighborsClassifier:")
+        st.write(confusion_matrix(y_test, y_pred_knn))
+        st.write("Classification Report for KNeighborsClassifier:")
+        st.write(classification_report(y_test, y_pred_knn))
+
+        st.markdown("---")
+
+        st.write('<span style="font-size:24px; color:#FFD700">Στατιστικά για το RandomForest</span>', unsafe_allow_html=True)
+        # Στατιστικα για το Δάσος
+        accuracy_rf = rf_classifier.score(X_test_scaled, y_test)
+        st.write(f'RandomForestClassifier accuracy with {num_estimators} estimators: {accuracy_rf:.2f}')
+        st.write("Confusion Matrix for RandomForestClassifier:")
+        st.write(confusion_matrix(y_test, y_pred_rf))
+        st.write("Classification Report for RandomForestClassifier:")
+        st.write(classification_report(y_test, y_pred_rf))
+
+
 
 with tab4:
-    if uploaded_files:
-        st.write("Αποτελέσματα Ανάλυσης και Σύγκριση")
-
-        st.write("Περιγραφικά στατιστικά:", data.describe())
-
-        st.write("Διάγραμμα Scatter Plot για τις προβλεπόμενες τιμές")
-        fig, ax = plt.subplots()
-        ax.plot([y.min(), y.max()], [y.min(), y.max()], 'k--', lw=4)
-        ax.set_xlabel('Πραγματικές Τιμές')
-        ax.set_ylabel('Προβλεπόμενες Τιμές')
-        st.pyplot(fig)
-
-with tab5:
     st.write("""
     ### Οδηγίες Χρήσης
 
