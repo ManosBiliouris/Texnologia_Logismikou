@@ -226,7 +226,6 @@ with tab3:
         st.write(f'KNeighborsClassifier accuracy with k={num_neighbors}: {accuracy_knn:.2f}')
         st.write("Confusion Matrix for KNeighborsClassifier:")
         st.write(confusion_matrix(y_test, y_pred_knn))
-        
 
         st.markdown("---")
 
@@ -236,6 +235,17 @@ with tab3:
         st.write(f'RandomForestClassifier accuracy with {num_estimators} estimators: {accuracy_rf:.2f}')
         st.write("Confusion Matrix for RandomForestClassifier:")
         st.write(confusion_matrix(y_test, y_pred_rf))
+
+        st.markdown("---")
+
+        st.write('<span style="font-size:24px; color:#FFD700">Αποτελέσματα</span>', unsafe_allow_html=True)
+        if accuracy_knn > accuracy_rf:
+            st.markdown(f'<span style="font-size:16px; color:#BB86FC">Ο αλγόριθμος KNeighborsClassifier είναι καλύτερος με ακρίβεια {accuracy_knn:.2f}</span>', unsafe_allow_html=True)
+        elif accuracy_rf > accuracy_knn:
+            st.markdown(f'<span style="font-size:16px; color:#BB86FC">Ο αλγόριθμος RandomForestClassifier είναι καλύτερος με ακρίβεια {accuracy_rf:.2f}</span>', unsafe_allow_html=True)
+        else:
+            st.markdown(f'<span style="font-size:16px; color:#BB86FC">Και οι δύο αλγόριθμοι έχουν την ίδια ακρίβεια: {accuracy_knn:.2f}</span>', unsafe_allow_html=True)
+
         
 
 with tab4:
@@ -288,6 +298,14 @@ with tab4:
         st.write(f"Agglomerative Clustering Silhouette Σκορ: {silhouette_agglomerative}")
 
         st.markdown("---")
+
+        st.write('<span style="font-size:24px; color:#FFD700">Αποτελέσματα</span>', unsafe_allow_html=True)
+        if silhouette_kmeans > silhouette_agglomerative:
+            st.markdown(f'<span style="font-size:16px; color:#BB86FC">Ο αλγόριθμος KMeans είναι καλύτερος με Silhouette Σκορ {silhouette_kmeans:.2f}</span>', unsafe_allow_html=True)
+        elif silhouette_agglomerative > silhouette_kmeans:
+            st.markdown(f'<span style="font-size:16px; color:#BB86FC">Ο αλγόριθμος Agglomerative Clustering είναι καλύτερος με Silhouette Σκορ {silhouette_agglomerative:.2f}</span>', unsafe_allow_html=True)
+        else:
+            st.markdown(f'<span style="font-size:16px; color:#BB86FC">Και οι δύο αλγόριθμοι έχουν το ίδιο Silhouette Σκορ: {silhouette_kmeans:.2f}</span>', unsafe_allow_html=True)
 
         
 
