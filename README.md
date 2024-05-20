@@ -5,9 +5,6 @@ This project is a web-based application for data analysis using machine learning
 ## Table of Contents
 - [Description](#description)
 - [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Results](#results)
 - [Contributors](#contributors)
 
 ## Description
@@ -20,5 +17,10 @@ The Streamlit Data Analysis Application is designed to make data analysis access
 - **Classification Algorithms:** Apply KNeighborsClassifier and RandomForestClassifier to classify data.
 - **Clustering Algorithms:** Use KMeans and Agglomerative Clustering for data clustering.
 - **Comparison of Algorithms:** Evaluate and compare the performance of different algorithms.
+
+- ## Contributors
+- Evangelos Konstantinidis
+- Manos Biliouris
+- Fotis Stamatopoulos
 
 
