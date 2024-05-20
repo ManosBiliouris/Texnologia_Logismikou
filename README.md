@@ -27,7 +27,7 @@ This project is developed by a team of enthusiastic computer science students fr
 - **Pandas**: For data manipulation and analysis.
 - **Matplotlib & Seaborn**: For data visualization.
 
-## 📊 Try the App
+## 📊 Try our Website
 
 👉 [Streamlit Data Analysis App](https://softwaretechnology-b42qedritrsylcjthcxrvx.streamlit.app) 👈
 
