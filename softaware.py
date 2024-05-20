@@ -13,8 +13,123 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.cluster import KMeans,  AgglomerativeClustering
 from sklearn.metrics import silhouette_score
 
+
+st.markdown("""
+    <style>
+    .main {
+        background-color: #121212;
+        color: #e0e0e0;
+    }
+    h1, h2 {
+        color: #BB86FC; /* Light Purple */
+        text-align: center;
+    }
+    .stTabs [role="tab"] {
+        border: 1px solid #333;
+        padding: 10px 15px; /* Reduced padding to make tabs closer */
+        margin: 0 2px; /* Reduced margin to make tabs closer */
+        border-radius: 5px;
+        background-color: #1F1F1F;
+        font-size: 18px;
+        color: #BB86FC; /* Light Purple */
+        transition: background-color 0.3s, color 0.3s;
+        display: inline-block; /* Ensure tabs are inline */
+    }
+    .stTabs [role="tab"][aria-selected="true"] {
+        background-color: #BB86FC; /* Light Purple */
+        color: #121212;
+    }
+    .stTabs [role="tab"]:hover {
+        background-color: #333;
+    }
+    .stButton button {
+        background-color: #BB86FC; /* Light Purple */
+        color: #121212;
+        border-radius: 5px;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        transition: background-color 0.3s, transform 0.3s;
+    }
+    .stButton button:hover {
+        background-color: #9A67EA; /* Darker Purple */
+        transform: scale(1.05);
+    }
+    .stNumberInput input {
+        border-radius: 5px;
+        background-color: #333;
+        color: #e0e0e0;
+        border: 1px solid #555;
+        padding: 5px;
+    }
+    .stFileUploader label {
+        background-color: #BB86FC; /* Light Purple */
+        color: #121212;
+        border-radius: 5px;
+        padding: 10px;
+        transition: background-color 0.3s, transform 0.3s;
+    }
+    .stFileUploader label:hover {
+        background-color: #9A67EA; /* Darker Purple */
+        transform: scale(1.05);
+    }
+    .css-1aumxhk {
+        background-color: #333 !important;
+        border: 1px solid #555;
+        border-radius: 5px;
+        padding: 10px;
+        margin-top: 10px;
+    }
+    .css-1aumxhk:hover {
+        background-color: #444 !important;
+    }
+    .css-145kmo2 {
+        background-color: #121212 !important;
+        padding: 10px;
+    }
+</style>
+""", unsafe_allow_html=True)
+
+st.sidebar.markdown("<h1 style='color: #BB86FC;'>Πληροφορίες</h1>", unsafe_allow_html=True)
+st.sidebar.markdown("""
+    <h2 style='color: #BB86FC;'>Οδηγός Εφαρμογής</h2>
+    <h3 style='color: #BB86FC;'>1. Ανέβασμα Αρχείου:</h3>
+    <p style='color: #e0e0e0;'>Επιλέξτε την καρτέλα "Ανέβασε το αρχείο σου".</p>
+    <p style='color: #e0e0e0;'>Κάντε κλικ στο κουμπί "Επιλέξτε ένα αρχείο CSV" ή στην περιοχή για να επιλέξετε το αρχείο CSV σας.</p>
+    <p style='color: #e0e0e0;'>Περιμένετε να φορτωθεί το αρχείο μετά την επιλογή.</p>
+    <hr>
+    <h3 style='color: #BB86FC;'>2. 2D Οπτικοποίηση:</h3>
+    <p style='color: #e0e0e0;'>Επιλέξτε την καρτέλα "2D Visualization".</p>
+    <p style='color: #e0e0e0;'>Επιλέξτε τον επιθυμητό τύπο οπτικοποίησης (PCA, t-SNE, EDA).</p>
+    <p style='color: #e0e0e0;'>Το PCA και το t-SNE θα οπτικοποιήσουν τα δεδομένα σας σε 2 διαστάσεις. Το EDA θα εμφανίσει περιγραφικά στατιστικά και γραφήματα όπως ιστογράμματα και χάρτες θερμότητας συσχέτισης.</p>
+    <hr>
+    <h3 style='color: #BB86FC;'>3. Αλγόριθμοι Κατηγοριοποίησης:</h3>
+    <p style='color: #e0e0e0;'>Επιλέξτε την καρτέλα "Αλγόριθμοι Κατηγοριοποίησης".</p>
+    <p style='color: #e0e0e0;'>Ορίστε τον αριθμό των γειτόνων για το KNeighborsClassifier και τον αριθμό των δέντρων για το RandomForestClassifier.</p>
+    <p style='color: #e0e0e0;'>Δείτε την ακρίβεια και τον πίνακα σύγχυσης για κάθε αλγόριθμο. Αναλυτικά στατιστικά όπως τα True Positives (TP), True Negatives (TN), False Positives (FP), και False Negatives (FN) είναι επίσης διαθέσιμα.</p>
+    <hr>
+    <h3 style='color: #BB86FC;'>4. Αλγόριθμοι Ομαδοποίησης:</h3>
+    <p style='color: #e0e0e0;'>Επιλέξτε την καρτέλα "Αλγόριθμοι Ομαδοποίησης".</p>
+    <p style='color: #e0e0e0;'>Ορίστε τον αριθμό των ομάδων για το KMeans και το Agglomerative Clustering.</p>
+    <p style='color: #e0e0e0;'>Δείτε τα αποτελέσματα της ομαδοποίησης, συμπεριλαμβανομένων των κεντροειδών, των προβλεπόμενων ομάδων και των στατιστικών όπως το inertia και το silhouette score.</p>
+    <hr>
+    <h3 style='color: #BB86FC;'>5. Πληροφορίες:</h3>
+    <p style='color: #e0e0e0;'>Επιλέξτε την καρτέλα "Πληροφορίες" για να δείτε λεπτομέρειες σχετικά με την εφαρμογή και την ομάδα ανάπτυξης.</p>
+    <hr>
+    <h2 style='color: #BB86FC;'>Πληροφορίες Ομάδας</h2>
+    <ul style='color: #e0e0e0;'>
+        <li>Ευάγγελος Κωνσταντινίδης</li>
+        <li>Εμμανουήλ Μπιλιούρης</li>
+        <li>Φώτιος Σταματόπουλος</li>
+    </ul>
+""", unsafe_allow_html=True)
+
+
+
+
+
 # Tab definitions
-tab1, tab2, tab3, tab4, tab5 = st.tabs(["Ανέβασε το αρχείο σου", "2D Visualization", "Αλγόριθμοι Κατηγοριοποίησης", "Αλγόριθμοι Ομαδοποίησης", "Information"])
+tab1, tab2, tab3, tab4 = st.tabs(["Ανέβασε το αρχείο σου", "2D Visualization", "Αλγόριθμοι Κατηγοριοποίησης", "Αλγόριθμοι Ομαδοποίησης"])
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
@@ -175,41 +290,4 @@ with tab4:
         st.markdown("---")
 
         
-with tab5:
-    st.write("""
-    ### Οδηγίες Χρήσης
-
-    1. **Ανέβασε το αρχείο σου**:
-        - Επιλέξτε το tab "Ανέβασε το αρχείο σου".
-        - Κάντε κλικ στο κουμπί ή στην περιοχή "Choose a CSV file" για να επιλέξετε το αρχείο CSV που θέλετε να χρησιμοποιήσετε.
-        - Μετά την επιλογή του αρχείου, παρακαλώ περιμένετε για τη φόρτωση των δεδομένων.
-    ****
-    2. **2D Visualization**:
-        - Επιλέξτε το tab "2D Visualization".
-        - Επιλέξτε τον τύπο οπτικοποίησης που επιθυμείτε (PCA, t-SNE, EDA).
-        - Για PCA και t-SNE, τα δεδομένα σας θα οπτικοποιηθούν σε 2 διαστάσεις.
-        - Για EDA, θα δείτε περιγραφικά στατιστικά και γραφήματα όπως ιστογράμματα και χάρτες θερμότητας συσχέτισης.
-    ****   
-    3. **Αλγόριθμοι Κατηγοριοποίησης**:
-        - Επιλέξτε το tab "Αλγόριθμοι Κατηγοριοποίησης".
-        - Ορίστε τον αριθμό των γειτόνων για τον αλγόριθμο KNeighborsClassifier και τον αριθμό των estimators για το RandomForestClassifier.
-        - Δείτε την ακρίβεια και τον πίνακα σύγχυσης για κάθε αλγόριθμο. Επίσης, θα δείτε αναλυτικά στατιστικά όπως True Positives (TP), True Negatives (TN), False Positives (FP), και False Negatives (FN) για κάθε κατηγορία.
-    ****         
-    4. **Αλγόριθμοι Ομαδοποίησης**:
-        - Επιλέξτε το tab "Αλγόριθμοι Ομαδοποίησης".
-        - Ορίστε τον αριθμό των ομάδων για τους αλγόριθμους KMeans και Agglomerative Clustering.
-        - Δείτε τα αποτελέσματα της ομαδοποίησης, συμπεριλαμβανομένων των κεντροειδών, των προβλεπόμενων ομάδων, και των στατιστικών όπως inertia και silhouette score.
-    ****
-    5. **Information**:
-        - Επιλέξτε το tab "Information" για να δείτε πληροφορίες σχετικά με την εφαρμογή και την ομάδα που τη δημιούργησε.
-    """)
-
-    st.write("""
-    ****
-    ### Πληροφορίες Ομάδας
-
-    - Ευάγγελος Κωνσταντινίδης
-    - Εμμανουήλ Μπιλιούρης
-    - Φώτιος Σταματόπουλος
-    """)
 
