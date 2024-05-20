@@ -27,6 +27,10 @@ This project is developed by a team of enthusiastic computer science students fr
 - **Pandas**: For data manipulation and analysis.
 - **Matplotlib & Seaborn**: For data visualization.
 
+## 📊 Try the App
+
+👉 [Streamlit Data Analysis App](https://softwaretechnology-b42qedritrsylcjthcxrvx.streamlit.app) 👈
+
 ## 🚀 How to Run the App
 
 ### With Docker
@@ -71,10 +75,6 @@ This project is developed by a team of enthusiastic computer science students fr
 ## 📚 Project Documentation
 
 - Check out our detailed [Project Report](https://github.com/ManosBiliouris/Texnologia_Logismikou/blob/main/report.pdf) (in Greek) for more information about the development process, design, and results.
-
-## 📊 Try the App
-
-👉 [Streamlit Data Analysis App](https://softwaretechnology-b42qedritrsylcjthcxrvx.streamlit.app) 👈
 
 Have fun exploring and analyzing your data! 🎉 If you have any questions or feedback, feel free to open an issue or contact us. 😊
 
