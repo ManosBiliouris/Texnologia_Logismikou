@@ -2,6 +2,23 @@
 
 Welcome to our super cool Data Analysis App built with Streamlit and Docker! 🚀
 
+## 🚀 Quick Start with Docker
+
+You can quickly run this Streamlit app using Docker. Follow these steps:
+
+1. **Pull the Docker image:**
+    ```sh
+    docker pull evangelos2002/my-streamlit-app:latest
+    ```
+2. **Run the Docker container:**
+    ```sh
+    docker run -d --name my_streamlit_app -p 8501:8501 evangelos2002/my-streamlit-app:latest
+    ```
+3. **Access the app:**
+    Open your browser and navigate to `http://localhost:8501`.
+
+For more information, visit our [Docker Hub repository](https://hub.docker.com/repository/docker/evangelos2002/my-streamlit-app/tags).
+
 ## 🏫 About the Project
 
 This project is developed by a team of enthusiastic computer science students from the Ionian University. Our goal is to create a user-friendly web application that makes data analysis fun and easy! 🥳
