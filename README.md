@@ -2,6 +2,10 @@
 
 Welcome to our super cool Data Analysis App built with Streamlit and Docker! 🚀
 
+## 📊 Try our Website
+
+👉 [Streamlit Data Analysis App](https://softwaretechnology-b42qedritrsylcjthcxrvx.streamlit.app) 👈
+
 ## 🚀 Quick Start with Docker
 
 You can quickly run this Streamlit app using Docker. Follow these steps:
@@ -43,10 +47,6 @@ This project is developed by a team of enthusiastic computer science students fr
 - **Scikit-learn**: For implementing machine learning algorithms.
 - **Pandas**: For data manipulation and analysis.
 - **Matplotlib & Seaborn**: For data visualization.
-
-## 📊 Try our Website
-
-👉 [Streamlit Data Analysis App](https://softwaretechnology-b42qedritrsylcjthcxrvx.streamlit.app) 👈
 
 
 ## 👨‍💻 Meet the Team
