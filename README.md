@@ -48,40 +48,6 @@ This project is developed by a team of enthusiastic computer science students fr
 
 👉 [Streamlit Data Analysis App](https://softwaretechnology-b42qedritrsylcjthcxrvx.streamlit.app) 👈
 
-## 🚀 How to Run the App
-
-### With Docker
-
-1. Clone the repo:
-    ```sh
-    git clone https://github.com/ManosBiliouris/Texnologia_Logismikou.git
-    cd Texnologia_Logismikou
-    ```
-2. Build the Docker image:
-    ```sh
-    docker build -t streamlit-data-analysis .
-    ```
-3. Run the Docker container:
-    ```sh
-    docker run -p 8501:8501 streamlit-data-analysis
-    ```
-4. Open your browser and navigate to `http://localhost:8501`.
-
-### Without Docker
-
-1. Clone the repo:
-    ```sh
-    git clone https://github.com/ManosBiliouris/Texnologia_Logismikou.git
-    cd Texnologia_Logismikou
-    ```
-2. Install the requirements:
-    ```sh
-    pip install -r requirements.txt
-    ```
-3. Run the Streamlit app:
-    ```sh
-    streamlit run app.py
-    ```
 
 ## 👨‍💻 Meet the Team
 
