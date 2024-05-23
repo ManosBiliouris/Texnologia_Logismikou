@@ -5,6 +5,7 @@ Welcome to our super cool Data Analysis App built with Streamlit and Docker! �
 ## 📊 Try our Website
 
 👉 [Streamlit Data Analysis App](https://softwaretechnology-b42qedritrsylcjthcxrvx.streamlit.app) 👈
+Αν στο Website εμφανίζεται μήνυμα που λέει οτι το app είναι ανενεργό μπορείτε να πάτησετε το κουμπί για να ξανα λειτουργήσει.
 
 ## 🚀 Quick Start with Docker
 
