@@ -56,13 +56,12 @@ This project is developed by a team of enthusiastic computer science students fr
 - **Emmanouil Biliouris**: Docker Expert [GitHub](https://github.com/ManosBiliouris)
 - **Fotios Stamatopoulos**: UML Designer [GitHub](https://github.com/FOTAKLAS)
 
-## 📚 Project Documentation
+  Have fun exploring and analyzing your data! 🎉 If you have any questions or feedback, feel free to open an issue or contact us. 😊
+- Happy Data Analyzing! 📊✨
+
+## 📚 Screenshots
 
 - Check out our detailed [Project Report](https://github.com/ManosBiliouris/Texnologia_Logismikou/blob/main/report.pdf) (in Greek) for more information about the development process, design, and results.
 ![2](https://github.com/ManosBiliouris/Texnologia_Logismikou/assets/93388918/afbdb96c-d2b8-49b2-812c-18e48420da91)
 ![3](https://github.com/ManosBiliouris/Texnologia_Logismikou/assets/93388918/a76989cc-8637-4af6-af09-c0e1316ff4ac)
-
-Have fun exploring and analyzing your data! 🎉 If you have any questions or feedback, feel free to open an issue or contact us. 😊
-
-Happy Data Analyzing! 📊✨
 ![Καταγραφή](https://github.com/ManosBiliouris/Texnologia_Logismikou/assets/93388918/ed5b3974-9791-448d-9853-c0137f0364ee)
