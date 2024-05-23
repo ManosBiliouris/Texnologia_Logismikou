@@ -63,3 +63,4 @@ This project is developed by a team of enthusiastic computer science students fr
 Have fun exploring and analyzing your data! 🎉 If you have any questions or feedback, feel free to open an issue or contact us. 😊
 
 Happy Data Analyzing! 📊✨
+![Καταγραφή](https://github.com/ManosBiliouris/Texnologia_Logismikou/assets/93388918/ed5b3974-9791-448d-9853-c0137f0364ee)
