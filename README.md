@@ -56,8 +56,9 @@ This project is developed by a team of enthusiastic computer science students fr
 - **Emmanouil Biliouris**: Docker Expert [GitHub](https://github.com/ManosBiliouris)
 - **Fotios Stamatopoulos**: UML Designer [GitHub](https://github.com/FOTAKLAS)
 
+##Best Of Wishes
   Have fun exploring and analyzing your data! 🎉 If you have any questions or feedback, feel free to open an issue or contact us. 😊
-- Happy Data Analyzing! 📊✨
+  Happy Data Analyzing! 📊✨
 
 ## 📚 Screenshots
 
